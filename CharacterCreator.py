@@ -17,16 +17,20 @@ def char_creation():
     entry_hp = input("Health: ")
     entry_damage = input("Damage: ")
     entry_speed = input("Sped: ")
-    if (int(entry_hp) + int(entry_speed) + int(entry_damage)) == 100:
-        my_char = Character(entry1, entry_hp, entry_damage, entry_speed)
-        print("")
-        print("Your character has been created!!")
-        my_char.stats()
-        return
+    if int(entry_hp) == abs(int(entry_hp)) and int(entry_speed) == abs(int(entry_speed)) and int(entry_damage) == abs(int(entry_damage)):
+        if (int(entry_hp) + int(entry_speed) + int(entry_damage)) == 100:
+            my_char = Character(entry1, entry_hp, entry_damage, entry_speed)
+            print("")
+            print("Your character has been created!!")
+            my_char.stats()
+            return
+        else:
+            print("Your sum of stats should be 100.")
+            return char_creation()
     else:
-        print("Your sum of stats should be 100.")
+        print("Your stats cannot be negative!!")
         return char_creation()
-
+        
 def random_character():
     total = 100
     random_hp = randint(0,100)
